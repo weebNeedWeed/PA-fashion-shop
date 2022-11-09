@@ -15,7 +15,5 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get("/", [HomeController::class, "index"]);
-
 // Product
-Route::get("/product", [ProductController::class, "index"]);
+Route::get("/", [ProductController::class, "index"]);
