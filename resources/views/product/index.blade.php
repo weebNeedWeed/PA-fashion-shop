@@ -8,7 +8,7 @@
 <div class="container-fluid">
   <div class="ads">
     <p class="ads__text">
-      PA giảm giá 25% mọi sản phẩm nhân dịp khai trương
+      1/11 - 1/12 PA giảm giá 25% mọi sản phẩm nhân dịp khai trương
     </p>
     <p class="ads__text" style="text-decoration: underline">Mua ngay!</p>
   </div>
