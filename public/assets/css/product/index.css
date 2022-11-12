@@ -1,3 +1,7 @@
+.product-section {
+  min-height: 1050px;
+}
+
 .ads {
   height: 150px;
   width: 100%;
@@ -21,4 +25,135 @@
   font-size: 25px;
   color: #f5f5f5;
   margin: 0;
+}
+
+.product-card-inner {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: all 0.2s;
+  height: 350px;
+}
+
+.product-card-inner:hover {
+  transform: scale(1.02);
+}
+
+.product-card-image {
+  background-image: url("https://cf.shopee.vn/file/sg-11134201-22100-xd36ok6vxsiv1e_tn");
+  height: 188px;
+  width: 188px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+}
+
+.product-card-title {
+  font-size: 16px;
+  text-align: left;
+  width: 100%;
+  font-weight: normal;
+  padding: 0 5px;
+  margin-top: 3px;
+  word-wrap: break-word;
+  height: 40px;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.product-add-cart {
+  height: 36px;
+  width: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #212529;
+  color: white;
+  border: 1px solid #212529;
+  outline: none;
+}
+
+.product-detail {
+  flex-grow: 1;
+}
+
+.product-price {
+  width: 100%;
+  padding: 0 5px;
+  text-decoration: underline;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.search-form {
+  width: 100%;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-input {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid black;
+  background-color: transparent;
+  height: 40px;
+  padding: 0 3px;
+  flex-grow: 1;
+}
+
+.search-button {
+  background-color: #212529;
+  color: white;
+  height: 40px;
+  width: 40px;
+}
+
+.category-box {
+  width: 100%;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.category-title {
+  font-size: 20px;
+  height: 50px;
+  background-color: #212529;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.category-list {
+  padding: 20px;
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.category-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.category-item a {
+  color: #212529;
+}
+
+.category-item span {
+  font-size: 14px;
+}
+
+.pagination {
+  justify-content: center;
+}
+
+.page-link {
+  color: #212529;
 }

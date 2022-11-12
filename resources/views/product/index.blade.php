@@ -12,5 +12,46 @@
     </p>
     <p class="ads__text" style="text-decoration: underline">Mua ngay!</p>
   </div>
+
+  <div class="mt-5 product-section">
+    <div class="row flex-column-reverse flex-md-row">
+      <div class="col-12 col-sm-12 col-md-8 col-lg-9">
+        <div class="row">
+          <div class="col-12">
+            <h3 class="mb-3">Tất cả sản phẩm</h3>
+          </div>
+          @foreach($products as $product)
+          <x-product-card :product="$product" />
+          @endforeach
+          <div class="col-12">
+            <div class="flex">
+              {{$products->withQueryString()->links()}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-4 col-lg-3">
+        <form action="/" class="search-form mb-4">
+          <input name="search" type="text" class="search-input" placeholder="Nhập từ khoá">
+          <button type="submit" class="search-button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+
+        <div class="category-box mb-5">
+          <h3 class="category-title">Danh mục sản phẩm</h3>
+
+          <div class="category-list">
+            @foreach($categories as $category)
+            <div class="category-item">
+              <a href="/?category={{$category->slug}}">{{$category->name}}</a>
+              <span>{{$category->category_count}}</span>
+            </div>
+            @endforeach
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 @endsection
