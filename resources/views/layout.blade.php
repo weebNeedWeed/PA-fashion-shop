@@ -37,7 +37,7 @@
 
             <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/account/login">
                   <i class="fa-solid fa-lock"></i> Đăng nhập
                 </a>
               </li>
@@ -94,6 +94,8 @@
     <script type="text/javascript" src="{{asset('assets/lib/popper/popper.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/lib/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/lib/fontawesome/js/all.min.js')}}"></script>
+
+    <script type="text/javascript" src="{{asset('assets/js/scripts.js')}}"></script>
 
     {{-- Javascript code for each page --}}
     @yield("scripts")

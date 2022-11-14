@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
       $table->string("description");
       $table->integer("price");
       $table->string("image");
-      $table->string("slug");
+      $table->string("slug")->unique();
       $table->unsignedInteger("category_id");
       $table->foreign("category_id")
         ->references("id")
