@@ -22,3 +22,5 @@ Route::get("/", [ProductController::class, "index"]);
 //auth
 Route::get("/account/login", [AccountController::class, "login"])->name("login");
 Route::post("/account/auth", [AccountController::class, "auth"]);
+Route::get("/account/register", [AccountController::class, "register"]);
+Route::post("/account/createuser", [AccountController::class, "createUser"]);

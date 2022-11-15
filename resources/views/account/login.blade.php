@@ -26,7 +26,7 @@
 
       <button type="submit" class="form__button">Đăng nhập</button>
 
-      <p class="form__text">Chưa có tài khoản? <a href="" class="form__redirect-button">Đăng ký</a></p>
+      <p class="form__text">Chưa có tài khoản? <a href="/account/register" class="form__redirect-button">Đăng ký</a></p>
     </form>
   </div>
 </div>
