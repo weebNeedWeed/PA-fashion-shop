@@ -11,6 +11,7 @@
     {{-- Css assets --}}
     <link rel="stylesheet" href="{{asset('assets/lib/bootstrap/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/lib/fontawesome/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/lib/toastr/css/toastr.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/styles.css')}}">
 
     {{-- Css code for each page --}}
@@ -36,16 +37,34 @@
             </ul>
 
             <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+              @guest
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/account/login">
                   <i class="fa-solid fa-lock"></i> Đăng nhập
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/account/register">
                   <i class="fa-solid fa-user"></i> Đăng kí
                 </a>
               </li>
+              @endguest
+
+              @auth
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="fa-solid fa-user"></i> {{auth()->user()->name}}
+                </a>
+              </li>
+              <li class="nav-item">
+                <a id="logout-button" class="nav-link text-danger" href="#">
+                  <i class="fa-solid fa-right-from-bracket"></i> Đăng xuất
+                </a>
+                <form method="POST" action="/account/logout" id="logout-form">
+                  @csrf
+                </form>
+              </li>
+              @endauth
             </ul>
           </div>
         </div>
@@ -90,10 +109,15 @@
       <p class="footer__copyright">Copyright &#169; 2022 PA Fashion Shop.</p>
     </footer>
 
+    @include("partials._logout-modal")
+
     <script type="text/javascript" src="{{asset('assets/lib/jquery/jquery.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/lib/popper/popper.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/lib/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/lib/fontawesome/js/all.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/lib/toastr/js/toastr.min.js')}}"></script>
+
+    <script type="text/javascript" src="{{asset('assets/js/scripts.js')}}"></script>
 
     {{-- Javascript code for each page --}}
     @yield("scripts")
