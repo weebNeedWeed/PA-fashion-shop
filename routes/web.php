@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProductController;
 
 /*
@@ -17,3 +18,7 @@ use App\Http\Controllers\ProductController;
 
 // Product
 Route::get("/", [ProductController::class, "index"]);
+
+Route::get("/news", [NewsController::class, "index"]);
+
+

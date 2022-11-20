@@ -1,0 +1,127 @@
+.decs-intro{
+  display: flex;
+}
+.text-center{
+  text-align: center !important;
+}
+.intro-card{
+  border-radius: 0px !important;
+  flex-grow: 2;
+  padding-bottom: 10px;
+}
+.intro-button{
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: flex-start;
+}
+.intro-button  button{
+  justify-content: space-around;
+  background-color: rgba(3, 90, 230, 0.4);
+  color: #fff;
+  border-radius: 5px solid #000;
+  padding: 10px 30px!important;
+}
+.intro-button  button:hover{
+  pointer-events:fill;
+  cursor: pointer !important;
+  background-color: rgba(34, 66, 100, 0.782);
+}
+.card-text{
+  margin: 10px 20px;;
+}
+.news-content{
+  display: flex;
+  padding: 0 20px;
+}
+.news-content .main-content{
+  background-color: #ccc;
+  flex-grow: 4;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.main-content .content-hot{
+  padding: 0 15px 10px;
+  display: flex;
+  justify-content: space-around;
+
+}
+.content-hot .card {
+  background-color:rgba(139, 100, 41, 0.534);
+
+}
+
+.main-content .content-extra{
+  display: flex;
+  flex-grow: 1;
+
+}
+.content-extra{
+  background-color: #ccc;
+  color: #fff;
+}
+.content-extra .card
+{
+  background-color:rgba(34, 66, 100, 0.782);
+}
+
+
+@media screen and (min-width: 900px) and (max-width: 1250px) {
+  .decs-intro{
+    display: flex;
+    flex-direction: column;
+  }
+  .intro-card{
+    text-align: center;
+  }
+  .intro-button{
+    margin-bottom: 10px;
+  }
+  .news-content{
+    flex-direction: column-reverse;
+  }
+  .content-extra .card{
+    max-width: 100% !important;
+  }
+  .main-content{
+    display: flex;
+    flex-direction: column;
+  }
+  .content-extra .card-body{
+    text-align: center;
+  }
+
+}
+@media screen and (max-width: 899px){
+  .decs-intro{
+    display: flex;
+    flex-direction: column;
+  }
+  .intro-card{
+    text-align: center;
+  }
+  .intro-button{
+    margin-bottom: 10px;
+  }
+  .news-content{
+    flex-direction: row;
+  }
+  .content-extra .card{
+    max-width: 100% !important;
+  }
+  .main-content{
+    display: flex;
+    flex-direction: row;
+  }
+  .content-extra .card-body{
+    text-align: center;
+  }
+  .content-hot{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+}
