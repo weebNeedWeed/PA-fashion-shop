@@ -1,15 +1,11 @@
-if ($(".toast").length === 1) {
-  $(".toast").show();
+$("#logout-button").on("click", function () {
+  $("#logout-modal").show();
 
-  const timeOut = setTimeout(() => {
-    $(".toast").hide();
-  }, 10000);
-
-  $(".toast button").click(() => {
-    if (timeOut) {
-      clearTimeout(timeOut);
-    }
-
-    $(".toast").hide();
+  $(".logout-modal-close").click(() => {
+    $("#logout-modal").hide();
   });
-}
+
+  $("#logout-modal-confirmation").click(() => {
+    $("#logout-form").submit();
+  });
+});

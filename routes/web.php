@@ -20,7 +20,8 @@ use App\Http\Controllers\ProductController;
 Route::get("/", [ProductController::class, "index"]);
 
 //auth
-Route::get("/account/login", [AccountController::class, "login"])->name("login");
-Route::post("/account/auth", [AccountController::class, "auth"]);
-Route::get("/account/register", [AccountController::class, "register"]);
-Route::post("/account/createuser", [AccountController::class, "createUser"]);
+Route::get("/account/login", [AccountController::class, "login"])->name("login")->middleware("guest");
+Route::post("/account/auth", [AccountController::class, "auth"])->middleware("guest");
+Route::get("/account/register", [AccountController::class, "register"])->middleware("guest");
+Route::post("/account/createuser", [AccountController::class, "createUser"])->middleware("guest");
+Route::post("/account/logout", [AccountController::class, "logout"])->middleware("auth");
