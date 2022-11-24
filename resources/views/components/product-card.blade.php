@@ -15,9 +15,9 @@
         <i class="fa-solid fa-cart-plus"></i>
       </button>
 
-      <button class="product-detail">
+      <a href="/product/{{$product->slug}}" class="product-detail">
         Xem chi tiết
-      </button>
+      </a>
     </div>
   </div>
 </div>

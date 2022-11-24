@@ -18,6 +18,7 @@ use App\Http\Controllers\ProductController;
 
 // Product
 Route::get("/", [ProductController::class, "index"]);
+Route::get("/product/{slug}", [ProductController::class, "detail"]);
 
 //auth
 Route::get("/account/login", [AccountController::class, "login"])->name("login")->middleware("guest");
