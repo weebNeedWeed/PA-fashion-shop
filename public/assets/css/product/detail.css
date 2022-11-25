@@ -1,0 +1,106 @@
+.wrapper {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  width: 100%;
+  min-height: 800px;
+  padding: 20px;
+  border-radius: 2px;
+  background-color: white;
+}
+
+.breadcrumb-item a {
+  color: #212529;
+}
+
+.product-image {
+  width: 400px;
+  height: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.info-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.product-name {
+  margin-bottom: 20px;
+  font-weight: normal;
+}
+
+.product-price {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: #e9ecef;
+  align-items: center;
+  height: 50px;
+  font-size: 20px;
+  padding: 20px;
+}
+
+.product-price div {
+  margin-right: 5px;
+  font-weight: 600;
+}
+
+.product-price p {
+  margin: 0;
+}
+
+.product-quantity {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.quantity-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantity-box input {
+  width: 60px;
+  height: 40px;
+  border-left: none;
+  border-right: none;
+  text-align: center;
+  font-weight: bold;
+}
+
+.quantity-box input::-webkit-outer-spin-button,
+.quantity-box input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+/* Firefox */
+.quantity-box input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.quantity-box button {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #212529;
+}
+
+.product-quantity span {
+  font-size: 18px;
+}
+
+.add-to-cart {
+  height: 70px;
+  font-size: 18px;
+  margin-top: 35px;
+  padding: 0 20px;
+}
+
+.description {
+  font-size: 18px;
+}

@@ -43,4 +43,18 @@ class ProductController extends Controller
       "categories" => $allCategories,
     ]);
   }
+
+  public function detail(Request $request)
+  {
+    $slug = $request->slug;
+    $product = Product::all()->where("slug", $slug)->first();
+
+    if (!$product) {
+      return redirect("/404");
+    }
+
+    return view("product.detail", [
+      "product" => $product
+    ]);
+  }
 }

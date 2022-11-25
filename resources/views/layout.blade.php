@@ -5,8 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{csrf_token()}}">
+
     <link rel="shortcut icon" href="{{asset('images/app/icon.png')}}">
-    <title>Document</title>
+
+    <title>
+      @yield("title") | PA Fashion Shop
+    </title>
 
     {{-- Css assets --}}
     <link rel="stylesheet" href="{{asset('assets/lib/bootstrap/css/bootstrap.min.css')}}">
@@ -51,6 +56,11 @@
               @endguest
 
               @auth
+              <li class="nav-item">
+                <a class="nav-link" href="/cart">
+                  <i class="fa-solid fa-cart-shopping"></i> Giỏ hàng
+                </a>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">
                   <i class="fa-solid fa-user"></i> {{auth()->user()->name}}
@@ -105,9 +115,23 @@
             <a href="/" class="footer__link">Trang chủ</a>
           </div>
         </div>
+
+        <div class="col-md-2">
+          <div class="footer__item">
+            <a href="/account/login" class="footer__link">Đăng nhập</a>
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <div class="footer__item">
+            <a href="/account/register" class="footer__link">Đăng kí</a>
+          </div>
+        </div>
       </div>
       <p class="footer__copyright">Copyright &#169; 2022 PA Fashion Shop.</p>
     </footer>
+
+    @include("partials._toast")
 
     @include("partials._logout-modal")
 

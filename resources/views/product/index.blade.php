@@ -1,5 +1,7 @@
 @extends("layout")
 
+@section("title", "Trang chủ")
+
 @section('styles')
 <link rel="stylesheet" href="{{asset('assets/css/product/index.css')}}">
 @endsection
@@ -42,6 +44,17 @@
           <h3 class="category-title">Danh mục sản phẩm</h3>
 
           <div class="category-list">
+            @php
+            $total = 0;
+            foreach($categories as $category){
+            $total = $total + $category->category_count;
+            }
+            @endphp
+            <div class="category-item">
+              <a href="/">Tất cả</a>
+              <span>{{$total}}</span>
+            </div>
+
             @foreach($categories as $category)
             <div class="category-item">
               <a href="/?category={{$category->slug}}">{{$category->name}}</a>
@@ -55,5 +68,4 @@
   </div>
 </div>
 
-@include("partials._toast")
 @endsection

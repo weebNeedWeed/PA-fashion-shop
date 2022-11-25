@@ -17,6 +17,6 @@
 <script>
   setTimeout(() => {
     toastr.success('{{Session::get("message")}}');
-  },500);
+  },800);
 </script>
 @endif

@@ -1,5 +1,7 @@
 @extends("layout")
 
+@section("title", "Đăng kí")
+
 @section("styles")
 <link rel="stylesheet" href="{{asset('assets/css/account/register.css')}}">
 @endsection
@@ -12,22 +14,25 @@
       @csrf
       <h3 class="form__title">Đăng ký</h3>
 
-      <input required name="name" type="text" class="form__input" placeholder="Nhập họ tên">
+      <input value="{{old('name')}}" required name="name" type="text" class="form__input" placeholder="Nhập họ tên">
       @error("name")
       <span class="text-danger w-100 mt-1">{{$message}}</span>
       @enderror
 
-      <input required name="address" type="text" class="form__input" placeholder="Nhập địa chỉ">
+      <input value="{{old('address')}}" required name="address" type="text" class="form__input"
+        placeholder="Nhập địa chỉ">
       @error("address")
       <span class="text-danger w-100 mt-1">{{$message}}</span>
       @enderror
 
-      <input required name="phone_number" type="text" class="form__input" placeholder="Nhập số điện thoại">
+      <input value="{{old('phone_number')}}" required name="phone_number" type="text" class="form__input"
+        placeholder="Nhập số điện thoại">
       @error("phone_number")
       <span class="text-danger w-100 mt-1">{{$message}}</span>
       @enderror
 
-      <input required value="{{old('email')}}" name="email" type="email" class="form__input" placeholder="Nhập email">
+      <input value="{{old('email')}}" required value="{{old('email')}}" name="email" type="email" class="form__input"
+        placeholder="Nhập email">
       @error("email")
       <span class="text-danger w-100 mt-1">{{$message}}</span>
       @enderror

@@ -57,9 +57,13 @@ class AccountController extends Controller
     auth()->logout();
 
     $request->session()->invalidate();
-
     $request->session()->regenerateToken();
 
     return redirect("/")->with("message", "Đăng xuất thành công!");
+  }
+
+  public function forgetPassword()
+  {
+    return view("account.forget-password");
   }
 }

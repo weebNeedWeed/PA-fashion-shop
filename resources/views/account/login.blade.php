@@ -1,5 +1,7 @@
 @extends("layout")
 
+@section("title", "Đăng nhập")
+
 @section("styles")
 <link rel="stylesheet" href="{{asset('assets/css/account/login.css')}}">
 @endsection
@@ -22,7 +24,7 @@
       <span class="text-danger w-100 mt-1">{{$message}}</span>
       @enderror
 
-      <a href="" class="form__link">Quên mật khẩu?</a>
+      <a href="/account/forget-password" class="form__link">Quên mật khẩu?</a>
 
       <button type="submit" class="form__button">Đăng nhập</button>
 
