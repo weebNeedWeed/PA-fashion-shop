@@ -8,7 +8,7 @@
       {{$product->name}}
     </h4>
 
-    <p class="product-price">₫{{$product->price}}</p>
+    <p class="product-price">₫<span class="format-vnd">{{$product->price}}</span></p>
 
     <div class="d-flex justify-content-center mt-auto w-100 px-2">
       <button class="product-add-cart">

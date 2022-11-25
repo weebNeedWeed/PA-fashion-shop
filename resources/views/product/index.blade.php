@@ -66,5 +66,4 @@
   </div>
 </div>
 
-@include("partials._toast")
 @endsection

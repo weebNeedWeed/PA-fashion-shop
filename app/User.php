@@ -11,4 +11,9 @@ class User extends Model implements Authenticatable
   use AuthenticableTrait;
 
   protected $guarded = [];
+
+  public function cart_item()
+  {
+    return $this->belongsTo(CartItem::class, "user_id");
+  }
 }

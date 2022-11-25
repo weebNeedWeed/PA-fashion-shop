@@ -52,13 +52,18 @@
 
               @auth
               <li class="nav-item">
+                <a class="nav-link" href="/cart">
+                  <i class="fa-solid fa-cart-shopping"></i> Giỏ hàng
+                </a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="#">
                   <i class="fa-solid fa-user"></i> {{auth()->user()->name}}
                 </a>
               </li>
               <li class="nav-item">
                 <a id="logout-button" class="nav-link text-danger" href="#">
-                  <i class="fa-solid fa-right-from-bracket"></i> Đăng xuất
+                  <i class="fa-solid fa-right-from-bracket"></i>
                 </a>
                 <form method="POST" action="/account/logout" id="logout-form">
                   @csrf
@@ -105,9 +110,23 @@
             <a href="/" class="footer__link">Trang chủ</a>
           </div>
         </div>
+
+        <div class="col-md-2">
+          <div class="footer__item">
+            <a href="/account/login" class="footer__link">Đăng nhập</a>
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <div class="footer__item">
+            <a href="/account/register" class="footer__link">Đăng kí</a>
+          </div>
+        </div>
       </div>
       <p class="footer__copyright">Copyright &#169; 2022 PA Fashion Shop.</p>
     </footer>
+
+    @include("partials._toast")
 
     @include("partials._logout-modal")
 

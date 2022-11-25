@@ -47,19 +47,12 @@ class ProductController extends Controller
   public function detail(Request $request)
   {
     $slug = $request->slug;
-    $product = DB::table("products")
-      ->join("categories", "products.category_id", "=", "categories.id")
-      ->select([
-        "products.*",
-        DB::raw("categories.name as category_name"),
-        DB::raw("categories.slug as category_slug")
-      ])
-      ->where("products.slug", $slug)
-      ->first();
+    $product = Product::all()->where("slug", $slug)->first();
 
     if (!$product) {
       return redirect("/404");
     }
+
     return view("product.detail", [
       "product" => $product
     ]);
