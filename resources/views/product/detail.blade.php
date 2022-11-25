@@ -1,5 +1,9 @@
 @extends("layout")
 
+@section("title")
+Sản phẩm | {{$product->name}}
+@endsection
+
 @section("styles")
 <link rel="stylesheet" href="{{asset('assets/css/product/detail.css')}}">
 @endsection

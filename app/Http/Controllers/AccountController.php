@@ -61,4 +61,9 @@ class AccountController extends Controller
 
     return redirect("/")->with("message", "Đăng xuất thành công!");
   }
+
+  public function forgetPassword()
+  {
+    return view("account.forget-password");
+  }
 }

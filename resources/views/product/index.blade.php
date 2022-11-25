@@ -1,5 +1,7 @@
 @extends("layout")
 
+@section("title", "Trang chủ")
+
 @section('styles')
 <link rel="stylesheet" href="{{asset('assets/css/product/index.css')}}">
 @endsection

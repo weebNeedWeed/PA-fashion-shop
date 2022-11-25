@@ -5,8 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{csrf_token()}}">
+
     <link rel="shortcut icon" href="{{asset('images/app/icon.png')}}">
-    <title>Document</title>
+
+    <title>
+      @yield("title") | PA Fashion Shop
+    </title>
 
     {{-- Css assets --}}
     <link rel="stylesheet" href="{{asset('assets/lib/bootstrap/css/bootstrap.min.css')}}">
@@ -63,7 +68,7 @@
               </li>
               <li class="nav-item">
                 <a id="logout-button" class="nav-link text-danger" href="#">
-                  <i class="fa-solid fa-right-from-bracket"></i>
+                  <i class="fa-solid fa-right-from-bracket"></i> Đăng xuất
                 </a>
                 <form method="POST" action="/account/logout" id="logout-form">
                   @csrf

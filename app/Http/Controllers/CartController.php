@@ -29,6 +29,100 @@ class CartController extends Controller
 
   public function index()
   {
-    return view("cart.index");
+    $cartItems = CartItem::where("user_id", auth()->user()->id)->get();
+
+    return view("cart.index", [
+      "cartItems" => $cartItems
+    ]);
+  }
+
+  public function increaseQuantity(Request $request)
+  {
+    $request->validate([
+      "cart_item_id" => ["required", "integer", "exists:cart_items,id"]
+    ]);
+
+    $cartItemId = $request->get("cart_item_id");
+    $userId = auth()->user()->id;
+    $cartItem = CartItem::all()->where("id", $cartItemId)->where("user_id", $userId)->first();
+
+    if (!$cartItem) {
+      return response()->json([
+        "message" => "error",
+        "status" => 400,
+      ], 400);
+    }
+
+    $cartItem->quantity = $cartItem->quantity < 100 ? $cartItem->quantity + 1 : $cartItem->quantity;
+    $cartItem->save();
+
+    $cartItem->product = $cartItem->product;
+
+    $cartItems = CartItem::where("user_id", auth()->user()->id)->get();
+    $total = 0;
+    foreach ($cartItems as $item) {
+      $total = $total + $item->product->price * $item->quantity;
+    }
+
+    return response()->json([
+      "message" => "success",
+      "status" => 200,
+      "data" => [
+        "cart_item" => $cartItem,
+        "total_price" => $total
+      ]
+    ]);
+  }
+
+  public function decreaseQuantity(Request $request)
+  {
+    $request->validate([
+      "cart_item_id" => ["required", "integer", "exists:cart_items,id"]
+    ]);
+
+    $cartItemId = $request->get("cart_item_id");
+    $userId = auth()->user()->id;
+    $cartItem = CartItem::all()->where("id", $cartItemId)->where("user_id", $userId)->first();
+
+    if (!$cartItem) {
+      return response()->json([
+        "message" => "error",
+        "status" => 400,
+      ], 400);
+    }
+
+    $cartItem->quantity = $cartItem->quantity > 1 ? $cartItem->quantity - 1 : $cartItem->quantity;
+    $cartItem->save();
+
+    $cartItem->product = $cartItem->product;
+
+    $cartItems = CartItem::where("user_id", auth()->user()->id)->get();
+    $total = 0;
+    foreach ($cartItems as $item) {
+      $total = $total + $item->product->price * $item->quantity;
+    }
+
+    return response()->json([
+      "message" => "success",
+      "status" => 200,
+      "data" => [
+        "cart_item" => $cartItem,
+        "total_price" => $total
+      ]
+    ]);
+  }
+
+  public function deteteItem(Request $request)
+  {
+    $data = $request->validate([
+      "cart_item_id" => ["required", "integer", "exists:cart_items,id"]
+    ]);
+
+    $cartItemId = $data["cart_item_id"];
+    $cartItem = CartItem::find($cartItemId);
+
+    $cartItem->delete();
+
+    return back()->with("message", "Xoá sản phẩm thành công");
   }
 }
