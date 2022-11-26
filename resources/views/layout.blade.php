@@ -62,8 +62,8 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <i class="fa-solid fa-user"></i> {{auth()->user()->name}}
+                <a class="nav-link" href="/account/dashboard">
+                  <i class="fa-solid fa-user"></i> Người dùng
                 </a>
               </li>
               <li class="nav-item">

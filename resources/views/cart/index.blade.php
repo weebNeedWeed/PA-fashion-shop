@@ -19,7 +19,7 @@
     <div class="address">
       <h5>Địa chỉ nhận hàng:</h5>
       <span>{{auth()->user()->address}}</span>
-      <a href="#">Thay đổi</a>
+      <a href="/account/dashboard/update-info">Thay đổi</a>
     </div>
 
     <div class="mt-5 table-responsive">
@@ -74,7 +74,7 @@
             <td>
               <form action="/cart/deleteItem" method="POST">
                 @csrf
-                <input type="hidden" name="cart_item_id" value={{$cartItem->id}}>
+                <input required type="hidden" name="cart_item_id" value={{$cartItem->id}}>
                 <button type="submit" class="delete-button text-danger">
                   <i class="fa-solid fa-trash"></i>
                 </button>
@@ -86,10 +86,16 @@
       </table>
     </div>
 
+    @unless(count($cartItems) === 0)
     <div class="mt-3 d-flex flex-column align-items-end">
       <p class="total-price">Tổng thanh toán: <span>₫</span><span class="format-vnd">{{$total}}</span></p>
-      <button class="order-button">Đặt hàng</button>
+
+      <form action="/order/create-order" method="POST">
+        @csrf
+        <button type="submit" class="order-button">Đặt hàng</button>
+      </form>
     </div>
+    @endunless
   </div>
 </div>
 

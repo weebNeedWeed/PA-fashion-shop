@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -65,5 +66,62 @@ class AccountController extends Controller
   public function forgetPassword()
   {
     return view("account.forget-password");
+  }
+
+  public function showOrders()
+  {
+    $orders = Order::latest()
+      ->where("user_id", auth()->user()->id)
+      ->get();
+
+    return view("account.dashboard.orders", [
+      "orders" => $orders
+    ]);
+  }
+
+  public function showUpdateInfo()
+  {
+    return view("account.dashboard.update-info");
+  }
+
+  public function updateInfo(Request $request)
+  {
+    $validated = $request->validate([
+      "name" => ["required", "string", "min:8"],
+      "address" => ["required", "string", "min:8"],
+      "phone_number" => ["required", "regex:/(0)[0-9]{9}/"],
+    ]);
+
+    $user = User::all()->find(auth()->user()->id);
+
+    $user->name = $validated["name"];
+    $user->address = $validated["address"];
+    $user->phone_number = $validated["phone_number"];
+
+    $user->save();
+
+    return back()->with("message", "Cập nhật thông tin thành công");
+  }
+
+  public function showUpdatePassword()
+  {
+    return view("account.dashboard.update-password");
+  }
+
+  public function updatePassword(Request $request)
+  {
+    $validated = $request->validate([
+      "password" => ["required", "min:8", "confirmed"],
+      "password_confirmation" => ["required"]
+    ]);
+
+    $encrypted = bcrypt($validated["password"]);
+    $user = User::all()->find(auth()->user()->id);
+
+    $user->password = $encrypted;
+
+    $user->save();
+
+    return back()->with("message", "Đổi mật khẩu thành công");
   }
 }
