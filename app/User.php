@@ -16,4 +16,9 @@ class User extends Model implements Authenticatable
   {
     return $this->hasMany(CartItem::class, "user_id");
   }
+
+  public function orders()
+  {
+    return $this->hasMany(Order::class, "user_id");
+  }
 }

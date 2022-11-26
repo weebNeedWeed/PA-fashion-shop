@@ -13,8 +13,8 @@
     <div class="d-flex justify-content-center mt-auto w-100 px-2">
       <form action="/cart/addItem" method="POST">
         @csrf
-        <input type="hidden" name="quantity" value="1">
-        <input type="hidden" name="product_id" value="{{$product->id}}">
+        <input required type="hidden" name="quantity" value="1">
+        <input required type="hidden" name="product_id" value="{{$product->id}}">
         <button type="submit" class="product-add-cart">
           <i class="fa-solid fa-cart-plus"></i>
         </button>

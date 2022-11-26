@@ -9,14 +9,14 @@ class CartController extends Controller
 {
   public function addItem(Request $request)
   {
-    $request->validate([
+    $validated = $request->validate([
       "quantity" => ["required", "integer", "min:1", "max:100"],
       "product_id" => ["required", "integer", "exists:products,id"]
     ]);
 
     $userId = auth()->user()->id;
-    $productId = intval($request->product_id);
-    $quantity = intval($request->quantity);
+    $productId = $validated["product_id"];
+    $quantity = $validated["quantity"];
 
     CartItem::create([
       "user_id" => $userId,
@@ -119,7 +119,13 @@ class CartController extends Controller
     ]);
 
     $cartItemId = $data["cart_item_id"];
-    $cartItem = CartItem::find($cartItemId);
+    $cartItem = CartItem::all()
+      ->where("user_id", auth()->user()->id)
+      ->where("id", $cartItemId)->first();
+
+    if (!$cartItem) {
+      return back();
+    }
 
     $cartItem->delete();
 

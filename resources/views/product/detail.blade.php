@@ -34,7 +34,7 @@ Sản phẩm | {{$product->name}}
           @csrf
           <h3 class="product-name">{{$product->name}}</h3>
 
-          <input name="product_id" type="hidden" value="{{$product->id}}">
+          <input required name="product_id" type="hidden" value="{{$product->id}}">
 
           <div class="product-price">
             <div>Giá niêm yết:</div>
