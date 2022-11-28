@@ -27,38 +27,40 @@
         </ol>
       </div>
 
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Hình ảnh</th>
-            <th scope="col">Tên hàng</th>
-            <th scope="col">Đơn giá</th>
-            <th scope="col">Số lượng</th>
-          </tr>
-        </thead>
-        <tbody>
-          @foreach($order->order_items as $orderItem)
-          <tr>
-            <th scope="row">{{$loop->index + 1}}</th>
-            <td>
-              <img src="{{$orderItem->product->image}}" width="80" height="80">
-            </td>
-            <td>
-              {{$orderItem->product->name}}
-            </td>
-            <td>
-              ₫<span class="format-vnd">
-                {{$orderItem->product->price}}
-              </span>
-            </td>
-            <td>
-              {{$orderItem->quantity}}
-            </td>
-          </tr>
-          @endforeach
-        </tbody>
-      </table>
+      <div class="w-100 table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Hình ảnh</th>
+              <th scope="col">Tên hàng</th>
+              <th scope="col">Đơn giá</th>
+              <th scope="col">Số lượng</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach($order->order_items as $orderItem)
+            <tr>
+              <th scope="row">{{$loop->index + 1}}</th>
+              <td>
+                <img src="{{$orderItem->product->image}}" width="80" height="80">
+              </td>
+              <td>
+                {{$orderItem->product->name}}
+              </td>
+              <td>
+                ₫<span class="format-vnd">
+                  {{$orderItem->product->price}}
+                </span>
+              </td>
+              <td>
+                {{$orderItem->quantity}}
+              </td>
+            </tr>
+            @endforeach
+          </tbody>
+        </table>
+      </div>
 
       <div class="d-flex flex-column align-items-end">
         <h5>Tổng số tiền: <span class="fw-normal">₫</span><span
