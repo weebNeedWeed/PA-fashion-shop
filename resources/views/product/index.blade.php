@@ -20,7 +20,8 @@
       <div class="col-12 col-sm-12 col-md-8 col-lg-9">
         <div class="row">
           <div class="col-12">
-            <h3 class="mb-3">Tất cả sản phẩm</h3>
+            <h3 class="mb-0">Tất cả sản phẩm</h3>
+            <p class="fw-light mb-3">Hiển thị {{count($products)}} kết quả</p>
           </div>
           @foreach($products as $product)
           <x-product-card :product="$product" />
@@ -47,7 +48,7 @@
             @php
             $total = 0;
             foreach($categories as $category){
-            $total = $total + $category->category_count;
+            $total = $total + $category->products->count();
             }
             @endphp
             <div class="category-item">
@@ -58,7 +59,7 @@
             @foreach($categories as $category)
             <div class="category-item">
               <a href="/?category={{$category->slug}}">{{$category->name}}</a>
-              <span>{{$category->category_count}}</span>
+              <span>{{$category->products->count()}}</span>
             </div>
             @endforeach
           </div>

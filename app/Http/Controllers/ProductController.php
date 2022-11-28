@@ -11,12 +11,14 @@ class ProductController extends Controller
 {
   public function index(Request $request)
   {
-    $allCategories = DB::table("categories")
-      ->leftJoin("products", "categories.id", "=", "products.category_id")
-      ->select("categories.*", DB::raw("count(products.id) as category_count"))
-      ->groupBy("name")
-      ->orderBy("categories.name")
-      ->get();
+    // $allCategories = DB::table("categories")
+    //   ->leftJoin("products", "categories.id", "=", "products.category_id")
+    //   ->select("categories.*", DB::raw("count(products.id) as category_count"))
+    //   ->groupBy("name")
+    //   ->orderBy("categories.name")
+    //   ->get();
+
+    $allCategories = Category::orderBy('name', 'ASC')->get();
 
     $allProducts = DB::table("products")
       ->join("categories", "products.category_id", "=", "categories.id")
