@@ -14,7 +14,7 @@ class OrderController extends Controller
     $cartItems = CartItem::where("user_id", auth()->user()->id)->get();
 
     if (count($cartItems) === 0) {
-      return back();
+      return back()->with("error", "Giỏ hàng đang rỗng");
     }
 
     $newOrder = new Order();
@@ -50,7 +50,7 @@ class OrderController extends Controller
     $order = Order::where("user_id", $userId)->where("id", $orderId)->first();
 
     if (!$order) {
-      return back();
+      return back()->with("error", "Có lỗi xảy ra, vui lòng thử lại");
     }
 
     $order->status = 0;

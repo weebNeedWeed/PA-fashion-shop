@@ -24,7 +24,10 @@ class AccountController extends Controller
       return redirect("/")->with("message", "Đăng nhập thành công");
     }
 
-    return back()->withErrors(["email" => "Sai tài khoản hoặc mật khẩu"])->withInput();
+    return back()
+      ->withErrors(["email" => "Sai tài khoản hoặc mật khẩu"])
+      ->withInput()
+      ->with("error", "Đăng nhập thất bại");
   }
 
   public function register()

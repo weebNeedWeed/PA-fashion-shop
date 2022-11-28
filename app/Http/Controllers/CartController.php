@@ -124,7 +124,7 @@ class CartController extends Controller
       ->where("id", $cartItemId)->first();
 
     if (!$cartItem) {
-      return back();
+      return back()->with("error", "Có lỗi xảy ra, vui lòng thử lại");
     }
 
     $cartItem->delete();
