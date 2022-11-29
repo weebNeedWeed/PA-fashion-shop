@@ -17,4 +17,16 @@ class CartItem extends Model
   {
     return $this->belongsTo(Product::class, "product_id");
   }
+
+  public static function totalPriceByUserId($userId)
+  {
+    $cartItems = CartItem::where("user_id", $userId)->get();
+    $total = 0;
+
+    foreach ($cartItems as $cartItem) {
+      $total = $total + ($cartItem->product->price * $cartItem->quantity);
+    }
+
+    return $total;
+  }
 }

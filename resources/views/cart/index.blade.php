@@ -36,51 +36,8 @@
           </tr>
         </thead>
         <tbody>
-          @php
-          $total = 0;
-          @endphp
           @foreach($cartItems as $cartItem)
-          @php
-          $total = $total + $cartItem->quantity * $cartItem->product->price;
-          @endphp
-          <tr>
-            <th scope="row">{{$loop->index + 1}}</th>
-            <td>
-              <img src="{{$cartItem->product->image}}" width="78" height="78" />
-            </td>
-            <td>
-              <a class="product-name" href="/product/{{$cartItem->product->slug}}">
-                {{$cartItem->product->name}}
-              </a>
-            </td>
-            <td>
-              ₫<span class="format-vnd">{{$cartItem->product->price}}</span>
-            </td>
-            <td>
-              <div class="quantity-box">
-                <button class="minus" data-cart-item-id="{{$cartItem->id}}">
-                  <i class="fa-solid fa-minus"></i>
-                </button>
-                <input type="number" readonly value="{{$cartItem->quantity}}" data-cart-item-id="{{$cartItem->id}}">
-                <button class="add" data-cart-item-id="{{$cartItem->id}}">
-                  <i class="fa-solid fa-plus"></i>
-                </button>
-              </div>
-            </td>
-            <td>
-              ₫<span data-cart-item-id="{{$cartItem->id}}"
-                class="format-vnd">{{$cartItem->quantity * $cartItem->product->price}}</span>
-            </td>
-            <td>
-              <form action="/cart/deleteItem" method="POST">
-                @csrf
-                <input required type="hidden" name="cart_item_id" value={{$cartItem->id}}>
-                <button type="submit" class="delete-button text-danger">
-                  <i class="fa-solid fa-trash"></i>
-                </button>
-              </form>
-            </td>
-          </tr>
+          <x-cart-item :index="$loop->index + 1" :cartItem="$cartItem" />
           @endforeach
         </tbody>
       </table>
@@ -88,7 +45,7 @@
 
     @unless(count($cartItems) === 0)
     <div class="mt-3 d-flex flex-column align-items-end">
-      <p class="total-price">Tổng thanh toán: <span>₫</span><span class="format-vnd">{{$total}}</span></p>
+      <p class="total-price">Tổng thanh toán: <span>₫</span><span class="format-vnd">{{$totalPrice}}</span></p>
 
       <form action="/order/create-order" method="POST">
         @csrf

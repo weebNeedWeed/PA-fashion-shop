@@ -40,23 +40,7 @@
           </thead>
           <tbody>
             @foreach($order->order_items as $orderItem)
-            <tr>
-              <th scope="row">{{$loop->index + 1}}</th>
-              <td>
-                <img src="{{$orderItem->product->image}}" width="80" height="80">
-              </td>
-              <td>
-                {{$orderItem->product->name}}
-              </td>
-              <td>
-                ₫<span class="format-vnd">
-                  {{$orderItem->product->price}}
-                </span>
-              </td>
-              <td>
-                {{$orderItem->quantity}}
-              </td>
-            </tr>
+            <x-order-item :index="$loop->index + 1" :orderItem="$orderItem" />
             @endforeach
           </tbody>
         </table>
