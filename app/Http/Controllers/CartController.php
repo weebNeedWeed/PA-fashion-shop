@@ -30,9 +30,11 @@ class CartController extends Controller
   public function index()
   {
     $cartItems = CartItem::where("user_id", auth()->user()->id)->get();
+    $totalPrice = CartItem::totalPriceByUserId(auth()->user()->id);
 
     return view("cart.index", [
-      "cartItems" => $cartItems
+      "cartItems" => $cartItems,
+      "totalPrice" => $totalPrice
     ]);
   }
 
@@ -58,11 +60,7 @@ class CartController extends Controller
 
     $cartItem->product = $cartItem->product;
 
-    $cartItems = CartItem::where("user_id", auth()->user()->id)->get();
-    $total = 0;
-    foreach ($cartItems as $item) {
-      $total = $total + $item->product->price * $item->quantity;
-    }
+    $total = CartItem::totalPriceByUserId(auth()->user()->id);
 
     return response()->json([
       "message" => "success",
@@ -96,11 +94,7 @@ class CartController extends Controller
 
     $cartItem->product = $cartItem->product;
 
-    $cartItems = CartItem::where("user_id", auth()->user()->id)->get();
-    $total = 0;
-    foreach ($cartItems as $item) {
-      $total = $total + $item->product->price * $item->quantity;
-    }
+    $total = CartItem::totalPriceByUserId(auth()->user()->id);
 
     return response()->json([
       "message" => "success",

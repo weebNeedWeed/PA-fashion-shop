@@ -37,7 +37,29 @@ $(".add, .minus").click(function () {
     },
     error: (err) => {
       console.log(err);
-      toastr.error("Có lỗi xảy ra, vui lòng thử lại");
+      Swal.fire({
+        icon: "error",
+        title: "Lỗi",
+        text: "Có lỗi xảy ra, vui lòng thử lại",
+      });
     },
+  });
+});
+
+$(".order-button").click(() => {
+  Swal.fire({
+    title: "Thông báo",
+    text: "Bạn có chắc muốn đặt hàng ?",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#d33",
+    cancelButtonColor: "#3085d6",
+    cancelButtonText: "Đóng",
+    confirmButtonText: "Đặt hàng",
+    reverseButtons: true,
+  }).then((result) => {
+    if (result.isConfirmed) {
+      $("#order-form").submit();
+    }
   });
 });

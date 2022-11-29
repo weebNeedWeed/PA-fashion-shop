@@ -8,7 +8,7 @@
 
 @section("content")
 <div class="container-fluid">
-  <div class="ads">
+  <div class="ads p-2">
     <p class="ads__text">
       1/11 - 1/12 PA giảm giá 25% mọi sản phẩm nhân dịp khai trương
     </p>
