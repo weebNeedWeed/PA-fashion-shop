@@ -16,7 +16,8 @@
     {{-- Css assets --}}
     <link rel="stylesheet" href="{{asset('assets/lib/bootstrap/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/lib/fontawesome/css/all.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/lib/toastr/css/toastr.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/lib/sweetalert/css/sweetalert2.min.css')}}">
+
     <link rel="stylesheet" href="{{asset('assets/css/styles.css')}}">
 
     {{-- Css code for each page --}}
@@ -37,8 +38,30 @@
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav mb-2 mb-lg-0 me-auto">
               <li class="nav-item">
-                <a class="nav-link" href="/">Trang chủ</a>
+                <a class="nav-link" href="/">
+                  <i class="fa-solid fa-house"></i> Trang chủ
+                </a>
               </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/">
+                  <i class="fa-solid fa-newspaper"></i> Tin tức
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/">
+                  <i class="fa-solid fa-address-book"></i> Liên hệ
+                </a>
+              </li>
+
+              @auth
+              <li class="nav-item">
+                <a class="nav-link" href="/cart">
+                  <i class="fa-solid fa-cart-shopping"></i> Giỏ hàng
+                </a>
+              </li>
+              @endauth
             </ul>
 
             <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
@@ -56,11 +79,6 @@
               @endguest
 
               @auth
-              <li class="nav-item">
-                <a class="nav-link" href="/cart">
-                  <i class="fa-solid fa-cart-shopping"></i> Giỏ hàng
-                </a>
-              </li>
               <li class="nav-item">
                 <a class="nav-link" href="/account/dashboard">
                   <i class="fa-solid fa-user"></i> Người dùng
@@ -131,15 +149,14 @@
       <p class="footer__copyright">Copyright &#169; 2022 PA Fashion Shop.</p>
     </footer>
 
-    @include("partials._toast")
-
-    @include("partials._logout-modal")
 
     <script type="text/javascript" src="{{asset('assets/lib/jquery/jquery.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/lib/popper/popper.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/lib/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/lib/fontawesome/js/all.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('assets/lib/toastr/js/toastr.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/lib/sweetalert/js/sweetalert2.all.min.js')}}"></script>
+
+    @include("partials._alert")
 
     <script type="text/javascript" src="{{asset('assets/js/scripts.js')}}"></script>
 

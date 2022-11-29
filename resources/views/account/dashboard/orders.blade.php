@@ -1,6 +1,6 @@
 @extends("account.dashboard.dashboard_layout")
 
-@section("title", "Đơn hàng")
+@section("sub_title", "Đơn hàng")
 
 @section("sub_styles")
 <link rel="stylesheet" href="{{asset('assets/css/account/orders.css')}}">
@@ -62,25 +62,6 @@
     @endforeach
   </div>
 </div>
-
-<div id="cancel-modal" class="modal">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Thông báo</h5>
-        <button type="button" class="btn-close closeBtn"></button>
-      </div>
-      <div class="modal-body">
-        <p>Bạn có muốn huỷ đơn hàng này ?</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary closeBtn">Đóng</button>
-        <button id="cancel-btn" type="button" class="btn btn-danger">Huỷ đơn</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 @endsection
 
 @section("sub_scripts")

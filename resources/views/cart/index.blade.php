@@ -47,9 +47,9 @@
     <div class="mt-3 d-flex flex-column align-items-end">
       <p class="total-price">Tổng thanh toán: <span>₫</span><span class="format-vnd">{{$totalPrice}}</span></p>
 
-      <form action="/order/create-order" method="POST">
+      <form action="/order/create-order" method="POST" id="order-form">
         @csrf
-        <button type="submit" class="order-button">Đặt hàng</button>
+        <button type="button" class="order-button" id="order-button">Đặt hàng</button>
       </form>
     </div>
     @endunless

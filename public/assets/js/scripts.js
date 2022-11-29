@@ -8,14 +8,20 @@ const formatVND = (number) => {
 };
 
 $("#logout-button").on("click", function () {
-  $("#logout-modal").show();
-
-  $(".logout-modal-close").click(() => {
-    $("#logout-modal").hide();
-  });
-
-  $("#logout-modal-confirmation").click(() => {
-    $("#logout-form").submit();
+  Swal.fire({
+    title: "Thông báo",
+    text: "Bạn có chắc muốn đăng xuất ?",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#d33",
+    cancelButtonColor: "#3085d6",
+    cancelButtonText: "Đóng",
+    confirmButtonText: "Đăng xuất",
+    reverseButtons: true,
+  }).then((result) => {
+    if (result.isConfirmed) {
+      $("#logout-form").submit();
+    }
   });
 });
 
