@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
@@ -46,3 +47,6 @@ Route::post("/cart/deleteItem", [CartController::class, "deteteItem"])->middlewa
 // Order
 Route::post("/order/create-order", [OrderController::class, "createOrder"])->middleware("auth");
 Route::post("/order/cancel-order", [OrderController::class, "cancelOrder"])->middleware("auth");
+
+// Contact
+Route::get("/contact", [ContactController::class, "index"]);

@@ -50,18 +50,16 @@
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" href="/">
+                <a class="nav-link" href="/contact">
                   <i class="fa-solid fa-address-book"></i> Liên hệ
                 </a>
               </li>
 
-              @auth
               <li class="nav-item">
                 <a class="nav-link" href="/cart">
                   <i class="fa-solid fa-cart-shopping"></i> Giỏ hàng
                 </a>
               </li>
-              @endauth
             </ul>
 
             <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
