@@ -134,13 +134,25 @@
 
         <div class="col-md-2">
           <div class="footer__item">
+            <a href="/news" class="footer__link">Tin tức</a>
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <div class="footer__item">
+            <a href="/contact" class="footer__link">Liên hệ</a>
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <div class="footer__item">
             <a href="/account/login" class="footer__link">Đăng nhập</a>
           </div>
         </div>
 
         <div class="col-md-2">
           <div class="footer__item">
-            <a href="/account/register" class="footer__link">Đăng kí</a>
+            <a href="/cart" class="footer__link">Giỏ hàng</a>
           </div>
         </div>
       </div>
