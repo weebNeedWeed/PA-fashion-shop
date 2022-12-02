@@ -26,7 +26,7 @@
       @enderror
 
       <input value="{{old('phone_number')}}" required name="phone_number" type="text" class="form__input"
-        placeholder="Nhập số điện thoại">
+        placeholder="Nhập số điện thoại(ví dụ: 0123456789)">
       @error("phone_number")
       <span class="text-danger w-100 mt-1">{{$message}}</span>
       @enderror
