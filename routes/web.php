@@ -4,9 +4,9 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\NewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,3 +50,6 @@ Route::post("/order/cancel-order", [OrderController::class, "cancelOrder"])->mid
 
 // Contact
 Route::get("/contact", [ContactController::class, "index"]);
+
+// News
+Route::get("/news", [NewsController::class, "index"]);
