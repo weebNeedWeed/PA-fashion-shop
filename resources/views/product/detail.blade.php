@@ -70,11 +70,11 @@ Sản phẩm | {{$product->name}}
           </h2>
 
           <p class="description">
-            {{$product->description}}
+            {!!$product->description!!}
           </p>
 
           <div class="d-flex flex-row justify-content-center mt-3 mb-5">
-            <img src="{{$product->image}}" width="350px">
+            <img src="{{$product->image}}" style="width: min(350px, 100%)">
           </div>
         </div>
       </div>
