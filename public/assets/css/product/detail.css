@@ -104,3 +104,15 @@
 .description {
   font-size: 18px;
 }
+
+.des-title {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: #e9ecef;
+  align-items: center;
+  height: 60px;
+  font-size: 22px;
+  padding: 20px;
+  margin-bottom: 10px;
+}

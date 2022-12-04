@@ -21,7 +21,7 @@
         <div class="row">
           <div class="col-12">
             <h3 class="mb-0">Tất cả sản phẩm</h3>
-            <p class="fw-light mb-3">Hiển thị {{count($products)}} kết quả</p>
+            <p class="fw-light mb-3">Hiển thị {{$total}} kết quả</p>
           </div>
           @foreach($products as $product)
           <x-product-card :product="$product" />

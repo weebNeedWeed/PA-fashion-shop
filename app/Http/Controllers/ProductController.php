@@ -38,11 +38,14 @@ class ProductController extends Controller
       $allProducts->where("categories.slug", $category);
     }
 
+    $total = $allProducts->count();
+
     $allProducts = $allProducts->paginate(12);
 
     return view("product.index", [
       "products" => $allProducts,
       "categories" => $allCategories,
+      "total" => $total
     ]);
   }
 
