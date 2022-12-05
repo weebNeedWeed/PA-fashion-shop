@@ -186,6 +186,10 @@
 
 </style>
 
+<head>
+  <title>Not found | 404 | PA Fashion Shop</title>
+  <link rel="shortcut icon" href="{{asset('images/app/icon.png')}}">
+</head>
 <h1>404</h1>
 <div class="cloak__wrapper">
   <div class="cloak__container">

@@ -14,6 +14,8 @@ class CreateCategoriesTable extends Migration
   public function up()
   {
     Schema::create('categories', function (Blueprint $table) {
+      $table->collation = 'utf8mb4_vietnamese_ci';
+
       $table->increments("id");
       $table->string("name");
       $table->string("slug")->unique();

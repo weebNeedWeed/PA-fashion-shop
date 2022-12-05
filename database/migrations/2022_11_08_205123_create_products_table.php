@@ -14,6 +14,8 @@ class CreateProductsTable extends Migration
   public function up()
   {
     Schema::create('products', function (Blueprint $table) {
+      $table->collation = 'utf8mb4_vietnamese_ci';
+
       $table->increments("id");
       $table->string("name");
       $table->longText("description");
