@@ -42,6 +42,7 @@ class ProductController extends Controller
         return redirect("/404");
       }
 
+      $categoryName = $category->name;
       $allProducts->where("categories.slug", $categorySlug);
     }
 
