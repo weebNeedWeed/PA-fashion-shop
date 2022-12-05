@@ -186,6 +186,10 @@
 
 </style>
 
+<head>
+  <title>Internal Server Error | 500 | PA Fashion Shop</title>
+  <link rel="shortcut icon" href="{{asset('images/app/icon.png')}}">
+</head>
 <h1>500</h1>
 <div class="cloak__wrapper">
   <div class="cloak__container">

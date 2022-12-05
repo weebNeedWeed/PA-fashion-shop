@@ -20,7 +20,15 @@
       <div class="col-12 col-sm-12 col-md-8 col-lg-9">
         <div class="row">
           <div class="col-12">
+            @if($categoryName !== null)
+            <h3 class="mb-0">Danh mục: {{$categoryName}}</h3>
+            @else
+            @if(request()->has("search"))
+            <h3 class="mb-0">Kết quả tìm kiếm cho: {{request()->search}}</h3>
+            @else
             <h3 class="mb-0">Tất cả sản phẩm</h3>
+            @endif
+            @endif
             <p class="fw-light mb-3">Hiển thị {{$total}} kết quả</p>
           </div>
           @foreach($products as $product)

@@ -32,10 +32,17 @@ class ProductController extends Controller
       $allProducts->orWhere("categories.name", "like", "%$keyword%");
     }
 
-    if ($request->has("category")) {
-      $category = $request->category;
+    $categoryName = null;
 
-      $allProducts->where("categories.slug", $category);
+    if ($request->has("category")) {
+      $categorySlug = $request->category;
+      $category = Category::where("slug", $categorySlug)->get()->first();
+
+      if (!$category) {
+        return redirect("/404");
+      }
+
+      $allProducts->where("categories.slug", $categorySlug);
     }
 
     $total = $allProducts->count();
@@ -45,7 +52,8 @@ class ProductController extends Controller
     return view("product.index", [
       "products" => $allProducts,
       "categories" => $allCategories,
-      "total" => $total
+      "total" => $total,
+      "categoryName" => $categoryName
     ]);
   }
 
