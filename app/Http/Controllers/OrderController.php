@@ -59,4 +59,26 @@ class OrderController extends Controller
 
     return back()->with("message", "Huỷ đơn hàng thành công");
   }
+
+  public function reorder(Request $request)
+  {
+    $validated = $request->validate([
+      "order_id" => ["required", "integer", "exists:orders,id"]
+    ]);
+
+    $orderId = $validated["order_id"];
+    $userId = auth()->user()->id;
+
+    $order = Order::where("user_id", $userId)->where("id", $orderId)->first();
+
+    if (!$order) {
+      return back()->with("error", "Có lỗi xảy ra, vui lòng thử lại");
+    }
+
+    $order->status = 1;
+
+    $order->save();
+
+    return back()->with("message", "Đặt hàng thành công");
+  }
 }

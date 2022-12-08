@@ -47,6 +47,7 @@ Route::post("/cart/deleteItem", [CartController::class, "deteteItem"])->middlewa
 // Order
 Route::post("/order/create-order", [OrderController::class, "createOrder"])->middleware("auth");
 Route::post("/order/cancel-order", [OrderController::class, "cancelOrder"])->middleware("auth");
+Route::post("/order/reorder", [OrderController::class, "reorder"])->middleware("auth");
 
 // Contact
 Route::get("/contact", [ContactController::class, "index"]);

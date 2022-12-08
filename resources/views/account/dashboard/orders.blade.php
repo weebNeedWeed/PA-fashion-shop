@@ -19,9 +19,9 @@
           <li class="breadcrumb-item">{{$order->created_at}}</li>
           <li class="breadcrumb-item">
             @if($order->status)
-            <span class="text-primary">Đang giao</span>
+            <span class="text-primary fw-bold">Đang giao</span>
             @else
-            <span class="text-danger">Đã huỷ</span>
+            <span class="text-danger fw-bold">Đã huỷ</span>
             @endif
           </li>
         </ol>
@@ -50,13 +50,21 @@
         <h5>Tổng số tiền: <span class="fw-normal">₫</span><span
             class="format-vnd fw-normal">{{$order->totalPrice()}}</span></h5>
 
-        @unless($order->status === 0)
+        @if($order->status === 1)
         <button type="button" class="btn btn-danger cancel-order-btn" data-order-id="{{$order->id}}">Huỷ đơn</button>
         <form action="/order/cancel-order" method="POST" id="cancel-form-{{$order->id}}">
           @csrf
           <input required type="hidden" name="order_id" value="{{$order->id}}">
         </form>
-        @endunless
+        @else
+        <button type="button" class="btn btn-primary reorder-btn" data-order-id="{{$order->id}}">
+          Đặt hàng lại
+        </button>
+        <form action="/order/reorder" method="POST" id="reorder-form-{{$order->id}}">
+          @csrf
+          <input required type="hidden" name="order_id" value="{{$order->id}}">
+        </form>
+        @endif
       </div>
     </div>
     @endforeach
